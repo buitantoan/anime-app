@@ -1,14 +1,9 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { 
-  Routes, 
-  Route,
-} from "react-router-dom";
 import './assets/css/App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Home from './pages/Home';
-import Wishlist from './pages/Wishlist';
+import RenderRouter from './routes/RenderRouter';
 
 const App = () => {
   const [wishlist, setWishlist] = useState(() => {
@@ -20,15 +15,12 @@ const App = () => {
     localStorage.setItem("wishlist", JSON.stringify(wishlist));
   }
   , [wishlist]);
-
+  
   return (
     <div className="app">
       <Header />
         <main>
-          <Routes>
-              <Route path="/" element={<Home wishlist={wishlist} setWishlist={setWishlist} />} />
-              <Route path="/wishlist" element={<Wishlist wishlist={wishlist} setWishlist={setWishlist} />} />
-          </Routes>
+          <RenderRouter wishlist={wishlist} setWishlist={setWishlist} />
         </main>
       <Footer />
     </div>

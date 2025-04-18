@@ -14,7 +14,20 @@
 
 body {
   font-family: var(--font-roboto);
-  background-color: #212426;
+}
+[data-theme='light'] {
+  --color-mode: #212426;
+  --bg-color-mode: #f0f0f0;
+  --link-color-mode: #f0f0f0;
+  background: var(--bg-color-mode);
+  color: var(--color-mode);
+}
+[data-theme='dark'] {
+  --color-mode: #f0f0f0;
+  --bg-color-mode: #212426;
+  --link-color-mode: #f0f0f0;
+  background: var(--bg-color-mode);
+  color: var(--color-mode);
 }
 
 .app {
@@ -46,14 +59,7 @@ main{
 h1 {
   font-size: 3rem;
   letter-spacing: 0.9px;
-  background: linear-gradient(
-    90deg,
-    rgba(249, 211, 180, 1) 0%,
-    rgba(249, 211, 180, 0) 100%
-  );
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--color-mode);
   text-align: center;
   margin-bottom: 30px;
 }
@@ -65,12 +71,9 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-
   padding: 1.5rem 1.75rem;
   border-radius: 3rem;
   background: #1f2123;
-  -webkit-box-shadow: 5px 5px 7px #1c1d1f, -5px -5px 7px #222527;
-  box-shadow: 5px 5px 7px #1c1d1f, -5px -5px 7px #222527;
 }
 
 .search input {
@@ -158,11 +161,12 @@ h1 {
 }
 .card .card-wishlist {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 12px;
+  right: 12px;
   z-index: 2;
 }
-.card .card-wishlist button {
+.wishlist-button {
+  display: inline-block;
   background: none;
   border: none;
   cursor: pointer;
@@ -171,7 +175,7 @@ h1 {
   padding: 10px;
   transition: all 0.2s ease-in-out;
 }
-.card .card-wishlist button svg{
+.wishlist-button svg{
   width: 1em;
   height: 1em;
 }

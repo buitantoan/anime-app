@@ -3,6 +3,7 @@
     background: #333;
     color: white;
     padding: 0.5rem 0;
+    border-bottom: 1px solid #f9d3b4;
 }
 header .flex-container {
     display: flex;
@@ -33,7 +34,7 @@ header nav{
 }
 .menu li a{
     text-decoration: none;
-    color: #fff;
+    color: var(--link-color-mode);
     font-size: 1.2rem;
     font-weight: 500;
 }
